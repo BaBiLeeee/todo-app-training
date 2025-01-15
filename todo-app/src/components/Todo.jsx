@@ -2,6 +2,8 @@ import { useState } from "react";
 import { BsPlus } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { addTodo, updateSearchTerm } from "../redux/actions";
+import FilterButton from "./FilterButtons";
+import TodoList from "./TodoList";
 
 const Todo = () => {
     const dispatch = useDispatch()
@@ -42,6 +44,7 @@ const Todo = () => {
       </div>
 
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <FilterButton/>
         <div className="flex items-center mb-4">
           <input
             className="flex-grow p-2 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500"
@@ -52,6 +55,7 @@ const Todo = () => {
           />
         </div>
       </div>
+      <TodoList/>
     </div>
   );
 };

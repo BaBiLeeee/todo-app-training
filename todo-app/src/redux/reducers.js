@@ -3,8 +3,6 @@ import {
     ADD_TODO,
     TOGGLE_TODO,
     REMOVE_TODO,
-    MARK_COMPLETED,
-    MARK_INCOMPLETE,
     FILTER_TODOS,
     MARK_ALL_COMPLETED,
     UPDATE_SEARCH_TERM,
@@ -33,24 +31,6 @@ import {
       case REMOVE_TODO:
         return {
           todos: state.todos.filter((todo, index) => index !== action.payload.id),
-          filter: state.filter,
-          searchTerm: state.searchTerm,
-        };
-  
-      case MARK_COMPLETED:
-        return {
-          todos: state.todos.map((todo, index) =>
-            index === action.payload.id ? { ...todo, completed: true } : todo
-          ),
-          filter: state.filter,
-          searchTerm: state.searchTerm,
-        };
-  
-      case MARK_INCOMPLETE:
-        return {
-          todos: state.todos.map((todo, index) =>
-            index === action.payload.id ? { ...todo, completed: false } : todo
-          ),
           filter: state.filter,
           searchTerm: state.searchTerm,
         };
