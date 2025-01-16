@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux"
-import { filterTodos, markAllCompleted } from "../redux/actions";
+import { filterTodos, markAllCompleted } from "../state/todo/todoSlice";
 
 const FilterButton = () => {
     const dispatch = useDispatch()
-    const currentFilter = useSelector((state) => state.filter);
+    const currentFilter = useSelector((state) => state.todos.filter);
     const handleFilter = (filter) => {
-        dispatch(filterTodos(filter))
+        console.log(filter)
+        dispatch(filterTodos({filter: filter}))
     }
     return (
         <div className="flex space-x-4 items-center">

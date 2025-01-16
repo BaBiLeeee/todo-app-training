@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BsPlus } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { addTodo, updateSearchTerm } from "../redux/actions";
+import { addTodo, updateSearchTerm } from "../state/todo/todoSlice";
 import FilterButton from "./FilterButtons";
 import TodoList from "./TodoList";
 
@@ -10,7 +10,7 @@ const Todo = () => {
     const [searchTerm, setSearchTerm] = useState();
     const [newTodoText, setNewTodoText] = useState("");
     const handleAddToDo = (text) => {
-        dispatch(addTodo(text))
+        dispatch(addTodo({text: text}))
     }
     const handleAddToDoClick = () => {
         if(newTodoText.trim() !== "") {
@@ -20,7 +20,7 @@ const Todo = () => {
     }
     const handleSearchChange = (value) => {
         setSearchTerm(value);
-        dispatch(updateSearchTerm(value))
+        dispatch(updateSearchTerm({searchTerm: value}))
     }
     return (
     <div className="max-w-4xl mx-auto sm:mt-8 p-4 bg-gray-100 rounded">

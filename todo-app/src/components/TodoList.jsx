@@ -3,9 +3,9 @@ import { TodoItem } from "./TodoItem"
 
 const TodoList = () => {
     const filteredTodos = useSelector((state) => {
-        const todos = state.todos
-        const filter = state.filter
-        const searchTerm = state.searchTerm
+        const todos = state.todos.todos
+        const filter = state.todos.filter
+        const searchTerm = state.todos.searchTerm
         
         return todos.filter((todo) => {
             const matchsFilter = (filter ==="COMPLETED" && todo.completed) || (filter ==="INCOMPLETE" &&
